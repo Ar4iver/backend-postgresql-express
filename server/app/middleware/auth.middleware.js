@@ -2,6 +2,7 @@ import asyncHandler from 'express-async-handler'
 import jwt from 'jsonwebtoken'
 import { prisma } from '../prisma.js'
 
+///middleware для приватного роута. Проверка на авторизованность
 export const protect = asyncHandler(async (req, res, next) => {
 	let token
 	if (req.headers.authorization?.startsWith('Bearer')) {
